@@ -13,4 +13,7 @@ public interface CreateLottoService {
     public int[] createLottoNumVer1();
 
     public int[] createLottoNumVer2();
+
+
+
 }
