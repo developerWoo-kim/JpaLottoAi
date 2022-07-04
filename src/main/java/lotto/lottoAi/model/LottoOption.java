@@ -23,4 +23,6 @@ public class LottoOption {
     private String allEven;
     private String oddNum;
 
+    private String numberOfExclusionArr;
+
 }

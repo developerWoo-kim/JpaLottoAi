@@ -26,8 +26,11 @@ public class TestController {
 
     @PostConstruct
     public void init() {
-        testMethod.test2();
-        testMethod.test3();
+
+        for(int i=700; i < 922; i++) {
+            testMethod.test2(i);
+        }
+//        testMethod.test3();
         testMethod.test();
     }
 
@@ -50,9 +53,12 @@ public class TestController {
             lottoOption.setNumberOfExclusion("Y");
             lottoOption.setWinningNum("Y");
             lottoOption.setContinuityAppear("N");
-            lottoOption.setAllEven("N");
-            lottoOption.setOddNum("N");
+            lottoOption.setAllEven("Y");
+            lottoOption.setOddNum("Y");
             lottoOption.setMember(member);
+
+            String exnArr = "7,8,9,10,11,12,13,14,15,16,17,18,19,20";
+            lottoOption.setNumberOfExclusionArr(exnArr);
             em.persist(lottoOption);
 
             List<Lotto> lottoList = createLottoService.createLotto(member, lottoOption, 10);
@@ -60,8 +66,8 @@ public class TestController {
 
         }
 
-        public void test2() {
-            String url = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=921";
+        public void test2(int drwNo) {
+            String url = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo="+drwNo;
 
             UriComponents uriComponents = UriComponentsBuilder
                     .fromHttpUrl(url)

@@ -6,7 +6,7 @@ public interface OptionService {
 
     public boolean optionApply(LottoOption lottoOption, int[] lottoNum);
 
-    public boolean numberOfExclusions(int[] lottoNum);
+    public boolean numberOfExclusions(int[] lottoNum, LottoOption lottoOption);
 
     public boolean continuityAppear(int[] lottoNum);
 

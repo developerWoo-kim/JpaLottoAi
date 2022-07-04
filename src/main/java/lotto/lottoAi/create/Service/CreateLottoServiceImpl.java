@@ -25,28 +25,34 @@ public class CreateLottoServiceImpl implements CreateLottoService {
         List<Lotto> lottoList = new ArrayList<>();
 
         for (int i=0; i < cnt; i++) {
-            Boolean optionResult = true;
+            boolean optionResult = true;
 
-            int lottoNum[] = createLottoNumVer1();
+            while (true) {
+                int lottoNum[] = createLottoNumVer1();
+                optionResult = optionService.optionApply(lottoOption, lottoNum);
 
-            optionResult = optionService.optionApply(lottoOption, lottoNum);
+                if(optionResult) {
 
-            if(optionResult) {
-                Lotto lotto = new Lotto();
-                lotto.setMember(member);
-                lotto.setNum1(lottoNum[0]);
-                lotto.setNum2(lottoNum[1]);
-                lotto.setNum3(lottoNum[2]);
-                lotto.setNum4(lottoNum[3]);
-                lotto.setNum5(lottoNum[4]);
-                lotto.setNum6(lottoNum[5]);
-                lotto.setCreateDate(LocalDateTime.now());
+                    if(optionResult) {
+                        Lotto lotto = new Lotto();
+                        lotto.setMember(member);
+                        lotto.setNum1(lottoNum[0]);
+                        lotto.setNum2(lottoNum[1]);
+                        lotto.setNum3(lottoNum[2]);
+                        lotto.setNum4(lottoNum[3]);
+                        lotto.setNum5(lottoNum[4]);
+                        lotto.setNum6(lottoNum[5]);
+                        lotto.setCreateDate(LocalDateTime.now());
 
-                lottoList.add(lotto);
+                        lottoList.add(lotto);
+
+                        createLottoRepository.createLotto(lottoList);
+                    }
+
+                    break;
+                }
             }
         }
-
-        createLottoRepository.createLotto(lottoList);
 
         return lottoList;
     }

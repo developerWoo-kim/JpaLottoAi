@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Getter @Setter
@@ -41,8 +42,14 @@ public class LottoRound {
         this.secondNum = object.get("drwtNo2").getAsInt();
         this.thirdNum = object.get("drwtNo3").getAsInt();
         this.fourthNum = object.get("drwtNo4").getAsInt();
-        this.sixthNum = object.get("drwtNo5").getAsInt();
+        this.fifthNum = object.get("drwtNo5").getAsInt();
+        this.sixthNum = object.get("drwtNo6").getAsInt();
         this.bonusNum = object.get("bnusNo").getAsInt();
+    }
+
+    // 이전 주의 당첨번호와 중복되는 번호가 있는지 판단하는 편의 메소드
+    public void preNumDupleCheck(int week, int currIdx, List<LottoRound> lottoRound) {
+
     }
 
 }
