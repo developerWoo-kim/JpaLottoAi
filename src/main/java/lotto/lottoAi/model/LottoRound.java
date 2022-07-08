@@ -48,8 +48,15 @@ public class LottoRound {
     }
 
     // 이전 주의 당첨번호와 중복되는 번호가 있는지 판단하는 편의 메소드
-    public void preNumDupleCheck(int week, int currIdx, List<LottoRound> lottoRound) {
+    public void preNumDupleCheck(int currIdx, List<LottoRound> lottoRound) {
 
     }
+
+    public int[] rtnLottoArr(LottoRound lottoRound) {
+        int[] lottoArr = {lottoRound.getFirstNum(), lottoRound.getSecondNum(), lottoRound.getThirdNum(),
+                    lottoRound.getFourthNum(), lottoRound.getFifthNum(), lottoRound.getSixthNum()};
+        return lottoArr;
+    }
+
 
 }
