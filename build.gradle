@@ -13,6 +13,12 @@ bootJar{
 	archiveVersion="0.0.1-SNAPSHOT"
 }
 
+jar{
+	enabled = true
+	baseName = "JpaLottoAi"
+	version = "0.0.1-SNAPSHOT"
+}
+
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
