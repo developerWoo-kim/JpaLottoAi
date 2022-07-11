@@ -47,7 +47,6 @@ public class LottoRound {
         this.bonusNum = object.get("bnusNo").getAsInt();
     }
 
-
     // 이전 주의 당첨번호와 중복되는 번호가 있는지 판단하는 편의 메소드
     public void preNumDupleCheck(int currIdx, List<LottoRound> lottoRound) {
 
